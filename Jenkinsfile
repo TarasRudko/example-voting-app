@@ -1,8 +1,5 @@
 pipeline {
-  agent {
-    node {
-      label 'xenial'
-    }
+  agent any
   }
   stages {
     stage('Build result') {
