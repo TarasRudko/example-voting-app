@@ -7,17 +7,17 @@ pipeline {
   stages {
     stage('Build result') {
       steps {
-        sh 'docker build -t dockersamples/result ./result'
+        sh 'docker build -t tarasrudko/result ./result'
       }
     } 
     stage('Build vote') {
       steps {
-        sh 'docker build -t dockersamples/vote ./vote'
+        sh 'docker build -t tarasrudko/vote ./vote'
       }
     }
     stage('Build worker') {
       steps {
-        sh 'docker build -t dockersamples/worker ./worker'
+        sh 'docker build -t tarasrudko/worker ./worker'
       }
     }
     stage('Push result image') {
@@ -25,8 +25,8 @@ pipeline {
         branch 'master'
       }
       steps {
-        withDockerRegistry(credentialsId: 'dockerbuildbot-index.docker.io', url:'') {
-          sh 'docker push dockersamples/result'
+        withDockerRegistry(credentialsId: 'docker_hub_login', url:'') {
+          sh 'docker push tarasrudko/result'
         }
       }
     }
@@ -35,8 +35,8 @@ pipeline {
         branch 'master'
       }
       steps {
-        withDockerRegistry(credentialsId: 'dockerbuildbot-index.docker.io', url:'') {
-          sh 'docker push dockersamples/vote'
+        withDockerRegistry(credentialsId: 'docker_hub_login', url:'') {
+          sh 'docker push tarasrudko/vote'
         }
       }
     }
@@ -45,8 +45,8 @@ pipeline {
         branch 'master'
       }
       steps {
-        withDockerRegistry(credentialsId: 'dockerbuildbot-index.docker.io', url:'') {
-          sh 'docker push dockersamples/worker'
+        withDockerRegistry(credentialsId: 'docker_hub_login', url:'') {
+          sh 'docker push tarasrudko/worker'
         }
       }
     }
