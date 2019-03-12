@@ -14,7 +14,7 @@ spec:
   selector: 
     app: redis
 ---
-apiVersion: apps/v1beta1
+apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: redis
@@ -54,7 +54,7 @@ spec:
   selector: 
     app: db
 ---
-apiVersion: apps/v1beta1
+apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: db
@@ -114,7 +114,7 @@ spec:
     app: result
   # clusterIP: None
 ---
-apiVersion: apps/v1beta1
+apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: result
@@ -151,7 +151,7 @@ spec:
     app: vote
   # clusterIP: None
 ---
-apiVersion: apps/v1beta1
+apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: vote
@@ -184,7 +184,7 @@ spec:
   selector: 
     app: worker
 --- 
-apiVersion: apps/v1beta1
+apiVersion: extensions/v1beta1
 kind: Deployment
 metadata: 
   labels: 
