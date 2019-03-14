@@ -56,7 +56,7 @@ pipeline {
                // milestone(1)
                 kubernetesDeploy(
                     kubeconfigId: 'kubeconfig',
-                    configs: 'kube-deployment.yml',
+                    configs: './k8s_specificationns/*',
                     enableConfigSubstitution: true
                 )
             }
