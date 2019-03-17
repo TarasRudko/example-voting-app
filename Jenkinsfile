@@ -55,10 +55,57 @@ pipeline {
                // input 'Deploy to Production?'
                // milestone(1)
                 kubernetesDeploy(
-                    kubeconfigId: 'kubeconfig',
-                    configs: 'kube-deployment.yaml',
+                    kubeconfigId: 'kubeconfig', 
+                    configs: './k8s-specifications/redis-deployment.yaml', 
                     enableConfigSubstitution: true
                 )
+                kubernetesDeploy(
+                    kubeconfigId: 'kubeconfig', 
+                    configs: './k8s-specifications/redis-service.yaml', 
+                    enableConfigSubstitution: true
+                )
+
+                kubernetesDeploy(
+                    kubeconfigId: 'kubeconfig', 
+                    configs: './k8s-specifications/db-deployment.yaml', 
+                    enableConfigSubstitution: true
+                )
+
+                kubernetesDeploy(
+                    kubeconfigId: 'kubeconfig', 
+                    configs: './k8s-specifications/db-service.yaml', 
+                    enableConfigSubstitution: true
+                )
+                 kubernetesDeploy(
+                    kubeconfigId: 'kubeconfig', 
+                    configs: './k8s-specifications/vote-deployment.yaml', 
+                    enableConfigSubstitution: true
+                )
+
+                kubernetesDeploy(
+                    kubeconfigId: 'kubeconfig', 
+                    configs: './k8s-specifications/vote-service.yaml', 
+                    enableConfigSubstitution: true
+                )
+
+                 kubernetesDeploy(
+                    kubeconfigId: 'kubeconfig', 
+                    configs: './k8s-specifications/result-deployment.yaml', 
+                    enableConfigSubstitution: true
+                )
+
+                kubernetesDeploy(
+                    kubeconfigId: 'kubeconfig', 
+                    configs: './k8s-specifications/result-service.yaml', 
+                    enableConfigSubstitution: true
+                )
+                 kubernetesDeploy(
+                    kubeconfigId: 'kubeconfig', 
+                    configs: './k8s-specifications/worker-deployment.yaml', 
+                    enableConfigSubstitution: true
+                )
+
+
             }
         }
   }
