@@ -89,9 +89,8 @@ spec:
         app: db
     spec:
       containers:
-        - 
-          name: db
-          image: postgres:9.4
+        - image: postgres:9.4
+          name: db          
           env:
             - name: PGDATA
               value: /var/lib/postgresql/data/pgdata
@@ -108,24 +107,7 @@ spec:
 
 
 
----
-apiVersion: v1
-kind: Service
-metadata:
-  namespace: vote
-  name: result
-  labels:
-    app: result
-spec:
-  type: LoadBalancer
-  ports:
-    - 
-      port: 5001
-      targetPort: 80
-      name: result
-  selector:
-    app: result
-  # clusterIP: None
+
 ---
 apiVersion: extensions/v1beta1
 kind: Deployment
